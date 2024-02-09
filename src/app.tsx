@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 
 import { NewNoteCard, NoteCard, Search } from "./components";
 
-import logo from "./assets/logo-nlw-expert.svg";
+import nlwExpertLogo from "./assets/logo-nlw-expert-light.svg";
 
 interface Note {
   id: string;
@@ -57,15 +57,17 @@ export function App() {
 
   return (
     <main className="mx-auto max-w-6xl my-12 space-y-6 px-5 lg:px-12">
-      <img src={logo} alt="Logo NLW Expert" />
-
+      <div className="flex items-center justify-between">
+        <img
+          src={nlwExpertLogo}
+          alt="Logo NLW Expert"
+          className="w-40 lg:w-48"
+        />
+        <NewNoteCard onNoteCreated={onNoteCreated} />
+      </div>
       <Search handleSearch={handleSearch} />
 
-      <div className="h-px bg-slate-700" />
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] gap-6">
-        <NewNoteCard onNoteCreated={onNoteCreated} />
-
         {filteredNotes.map((note) => (
           <NoteCard key={note.id} note={note} onNoteDeleted={onNoteDeleted} />
         ))}

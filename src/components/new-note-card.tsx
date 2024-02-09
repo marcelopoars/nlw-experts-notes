@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { toast } from "sonner";
 
 interface NewNoteCardProps {
@@ -92,14 +92,8 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
     <Dialog.Root
       onOpenChange={(open) => !open && setShouldShowOnboarding(true)}
     >
-      <Dialog.Trigger className="flex flex-col gap-3 text-left rounded-md bg-slate-700 p-5 hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-500 outline-none">
-        <span className="text-sm font-medium text-slate-200">
-          Adicionar nota
-        </span>
-        <p className="text-sm leading-6 text-slate-400">
-          Grave uma nota em áudio que será convertida para texto
-          automaticamente.
-        </p>
+      <Dialog.Trigger className="flex items-center gap-3 bg-lime-400 text-slate-800 font-semibold py-2 lg:py-4 px-4 lg:px-6 rounded-3xl">
+        <Plus /> Nova nota
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
@@ -107,7 +101,6 @@ export function NewNoteCard({ onNoteCreated }: NewNoteCardProps) {
           <Dialog.Close className="absolute top-0 right-0 bg-slate-800 text-slate-400 p-1.5 hover:text-slate-100">
             <X className="size-5" />
           </Dialog.Close>
-
           <form className="flex flex-col flex-1">
             <div className="flex flex-col flex-1 gap-3 p-5">
               <span className="text-sm font-medium text-slate-300">
