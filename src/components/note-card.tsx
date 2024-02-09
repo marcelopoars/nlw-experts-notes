@@ -19,14 +19,14 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className="flex flex-col gap-3 text-left rounded-md bg-slate-800 p-5 overflow-hidden relative  hover:ring-2 hover:ring-lime-300 focus-visible:ring-2 focus-visible:ring-lime-300 outline-none transition">
-          <span className="text-sm font-medium text-slate-300">
+          <span className="text-sm font-medium text-slate-400">
             Nota publicada{" "}
             {formatDistanceToNow(note.date, {
               locale: ptBR,
               addSuffix: true,
             })}
           </span>
-          <p className="text-sm leading-6 text-slate-400">{note.content}</p>
+          <p className="leading-6 text-slate-300">{note.content}</p>
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/60 to-black/0 pointer-events-none" />
         </button>
       </Dialog.Trigger>
