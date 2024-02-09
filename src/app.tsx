@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
-import { NewNoteCard, NoteCard, Search } from "./components";
+import { Footer, NewNoteCard, NoteCard, Search } from "./components";
 
 import nlwExpertLogo from "./assets/logo-nlw-expert-light.svg";
 
@@ -56,22 +56,28 @@ export function App() {
       : notes;
 
   return (
-    <main className="mx-auto max-w-6xl my-12 space-y-6 px-5 lg:px-12">
-      <div className="flex items-center justify-between">
-        <img
-          src={nlwExpertLogo}
-          alt="Logo NLW Expert"
-          className="w-40 lg:w-48"
-        />
-        <NewNoteCard onNoteCreated={onNoteCreated} />
-      </div>
-      <Search handleSearch={handleSearch} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] gap-6">
-        {filteredNotes.map((note) => (
-          <NoteCard key={note.id} note={note} onNoteDeleted={onNoteDeleted} />
-        ))}
-      </div>
-    </main>
+    <div>
+      <header>
+        <div className="mx-auto max-w-6xl my-12 space-y-6 px-5 lg:px-12">
+          <div className="flex items-center justify-between">
+            <img
+              src={nlwExpertLogo}
+              alt="Logo NLW Expert"
+              className="w-40 lg:w-48"
+            />
+            <NewNoteCard onNoteCreated={onNoteCreated} />
+          </div>
+          <Search handleSearch={handleSearch} />
+        </div>
+      </header>
+      <main className="mx-auto max-w-6xl my-12 space-y-6 px-5 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] gap-6">
+          {filteredNotes.map((note) => (
+            <NoteCard key={note.id} note={note} onNoteDeleted={onNoteDeleted} />
+          ))}
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
