@@ -1,10 +1,8 @@
 import { ChangeEvent, useState } from "react";
 
-import { NewNoteCard } from "./components/new-note-card";
-import { NoteCard } from "./components/note-card";
+import { NewNoteCard, NoteCard, Search } from "./components";
 
 import logo from "./assets/logo-nlw-expert.svg";
-import { Search } from "./components";
 
 interface Note {
   id: string;
