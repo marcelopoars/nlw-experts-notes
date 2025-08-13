@@ -1,8 +1,8 @@
-import { MagnifyingGlass } from "@phosphor-icons/react";
-import { ChangeEvent } from "react";
+import { MagnifyingGlass } from '@phosphor-icons/react'
+import { ChangeEvent } from 'react'
 
 interface SearchProps {
-  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export function Search({ handleSearch }: SearchProps) {
@@ -19,5 +19,5 @@ export function Search({ handleSearch }: SearchProps) {
         />
       </div>
     </form>
-  );
+  )
 }

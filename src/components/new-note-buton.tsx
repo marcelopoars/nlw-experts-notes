@@ -1,105 +1,105 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from 'react'
 
-import { Microphone, PencilSimple, Plus } from "@phosphor-icons/react";
-import * as Dialog from "@radix-ui/react-dialog";
-import { toast } from "sonner";
+import { Microphone, PencilSimple, Plus } from '@phosphor-icons/react'
+import * as Dialog from '@radix-ui/react-dialog'
+import { toast } from 'sonner'
 
-import { CloseButton } from ".";
+import { CloseButton } from '.'
 
 interface NewNoteButtonProps {
-  onNoteCreated: (content: string) => void;
+  onNoteCreated: (content: string) => void
 }
 
-let speechRecognition: SpeechRecognition | null = null;
+let speechRecognition: SpeechRecognition | null = null
 
 export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
-  const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true);
-  const [isRecording, setIsRecording] = useState(false);
-  const [content, setContent] = useState("");
+  const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true)
+  const [isRecording, setIsRecording] = useState(false)
+  const [content, setContent] = useState('')
 
-  const isContentEmpty = content === "";
+  const isContentEmpty = content === ''
 
   const handlrStartEditor = () => {
-    setShouldShowOnboarding(false);
-  };
+    setShouldShowOnboarding(false)
+  }
 
   const handleContentChanged = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(event.target.value);
+    setContent(event.target.value)
 
     if (!event.target.value) {
-      setShouldShowOnboarding(true);
+      setShouldShowOnboarding(true)
     }
-  };
+  }
 
   const handleSaveNote = (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    if (isContentEmpty) return "";
+    if (isContentEmpty) return ''
 
-    onNoteCreated(content);
+    onNoteCreated(content)
 
-    setContent("");
+    setContent('')
 
-    setShouldShowOnboarding(true);
+    setShouldShowOnboarding(true)
 
-    toast.success("Nota gravada com sucesso");
-  };
+    toast.success('Nota gravada com sucesso')
+  }
 
   const handleStartRecording = () => {
     const isSpeechRecognitionAPIAvailable =
-      "SpeechRecognition" in window || "webkitSpeechRecognition" in window;
+      'SpeechRecognition' in window || 'webkitSpeechRecognition' in window
 
     if (!isSpeechRecognitionAPIAvailable) {
-      alert("Navegador não suporta o recurso de gravação.");
-      return;
+      alert('Navegador não suporta o recurso de gravação.')
+      return
     }
 
-    setIsRecording(true);
-    setShouldShowOnboarding(false);
+    setIsRecording(true)
+    setShouldShowOnboarding(false)
 
     const SpeechRecognitionAPI =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.SpeechRecognition || window.webkitSpeechRecognition
 
-    speechRecognition = new SpeechRecognitionAPI();
+    speechRecognition = new SpeechRecognitionAPI()
 
-    speechRecognition.lang = "pt-br"; // idioma selecionado
-    speechRecognition.continuous = true; // grava continuamente até que sinalize para parar
-    speechRecognition.maxAlternatives = 1; // retorna apenas uma alternativa
-    speechRecognition.interimResults = true; // retorna resultados enquando se fala
+    speechRecognition.lang = 'pt-br' // idioma selecionado
+    speechRecognition.continuous = true // grava continuamente até que sinalize para parar
+    speechRecognition.maxAlternatives = 1 // retorna apenas uma alternativa
+    speechRecognition.interimResults = true // retorna resultados enquando se fala
 
     speechRecognition.onresult = (event) => {
       const transcription = Array.from(event.results).reduce((text, result) => {
-        return text.concat(result[0].transcript);
-      }, "");
+        return text.concat(result[0].transcript)
+      }, '')
 
-      setContent(transcription);
-    };
+      setContent(transcription)
+    }
 
     speechRecognition.onerror = (event) => {
-      console.error(event.message);
-    };
+      console.error(event.message)
+    }
 
-    speechRecognition.start();
-  };
+    speechRecognition.start()
+  }
 
   const handleStopRecording = () => {
-    setIsRecording(false);
+    setIsRecording(false)
 
     if (speechRecognition !== null) {
-      speechRecognition.stop();
+      speechRecognition.stop()
     }
-  };
+  }
 
   const onOpenChangeDialog = (open: boolean) => {
     if (!open && !content) {
-      setShouldShowOnboarding(true);
+      setShouldShowOnboarding(true)
     }
 
     if (speechRecognition !== null && isRecording) {
-      speechRecognition.stop();
+      speechRecognition.stop()
       setIsRecording(false)
     }
-  };
+  }
 
   return (
     <Dialog.Root onOpenChange={onOpenChangeDialog}>
@@ -124,7 +124,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
                     Gravando nota...
                   </>
                 ) : (
-                  "Criar nova nota"
+                  'Criar nova nota'
                 )}
               </span>
 
@@ -184,5 +184,5 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
-  );
+  )
 }

@@ -1,59 +1,59 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from 'react'
 
-import { Footer, NewNoteButton, NoteCard, Search } from "./components";
+import { Footer, NewNoteButton, NoteCard, Search } from './components'
 
-import nlwExpertLogo from "./assets/logo-nlw-expert-light.svg";
+import nlwExpertLogo from './assets/logo-nlw-expert-light.svg'
 
 interface Note {
-  id: string;
-  date: Date;
-  content: string;
+  id: string
+  date: Date
+  content: string
 }
 
 export function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('')
   const [notes, setNotes] = useState<Note[]>(() => {
-    const notesOnStorage = localStorage.getItem("notes");
+    const notesOnStorage = localStorage.getItem('notes')
     if (notesOnStorage) {
-      return JSON.parse(notesOnStorage);
+      return JSON.parse(notesOnStorage)
     }
-    return [];
-  });
+    return []
+  })
 
   const onNoteCreated = (content: string) => {
     const newNote = {
       id: crypto.randomUUID(),
       date: new Date(),
       content,
-    };
+    }
 
-    const notesArray = [newNote, ...notes];
+    const notesArray = [newNote, ...notes]
 
-    setNotes(notesArray);
+    setNotes(notesArray)
 
-    localStorage.setItem("notes", JSON.stringify(notesArray));
-  };
+    localStorage.setItem('notes', JSON.stringify(notesArray))
+  }
 
   const onNoteDeleted = (id: string) => {
-    const notesArray = notes.filter((note) => note.id !== id);
+    const notesArray = notes.filter((note) => note.id !== id)
 
-    setNotes(notesArray);
+    setNotes(notesArray)
 
-    localStorage.setItem("notes", JSON.stringify(notesArray));
-  };
+    localStorage.setItem('notes', JSON.stringify(notesArray))
+  }
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
+    const query = event.target.value
 
-    setSearch(query);
-  };
+    setSearch(query)
+  }
 
   const filteredNotes =
-    search !== ""
+    search !== ''
       ? notes.filter(({ content }) =>
-          content.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          content.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
         )
-      : notes;
+      : notes
 
   return (
     <div className="min-h-svh flex flex-col items-stretch">
@@ -79,5 +79,5 @@ export function App() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }

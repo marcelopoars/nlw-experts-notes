@@ -1,17 +1,17 @@
-import { TrashSimple } from "@phosphor-icons/react";
-import * as Dialog from "@radix-ui/react-dialog";
-import { formatDistanceToNow } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { TrashSimple } from '@phosphor-icons/react'
+import * as Dialog from '@radix-ui/react-dialog'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
-import { CloseButton } from ".";
+import { CloseButton } from '.'
 
 interface NoteCardProps {
   note: {
-    id: string;
-    date: Date;
-    content: string;
-  };
-  onNoteDeleted: (id: string) => void;
+    id: string
+    date: Date
+    content: string
+  }
+  onNoteDeleted: (id: string) => void
 }
 
 export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
@@ -20,7 +20,7 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
       <Dialog.Trigger asChild>
         <button className="flex flex-col gap-3 text-left rounded-md bg-slate-800 p-5 overflow-hidden relative  hover:ring-2 hover:ring-lime-300 focus-visible:ring-2 focus-visible:ring-lime-300 outline-none transition">
           <span className="text-sm font-medium text-slate-400">
-            Nota publicada{" "}
+            Nota publicada{' '}
             {formatDistanceToNow(note.date, {
               locale: ptBR,
               addSuffix: true,
@@ -36,7 +36,7 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
           <CloseButton />
           <div className="w-full flex flex-col flex-1 gap-3">
             <span className="text-sm font-medium text-slate-300 pb-2 border-b border-b-slate-500">
-              Nota publicada{" "}
+              Nota publicada{' '}
               {formatDistanceToNow(note.date, {
                 locale: ptBR,
                 addSuffix: true,
@@ -56,5 +56,5 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
-  );
+  )
 }

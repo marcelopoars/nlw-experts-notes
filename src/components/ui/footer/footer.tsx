@@ -2,8 +2,8 @@ import {
   GithubLogo,
   GoogleChromeLogo,
   LinkedinLogo,
-} from "@phosphor-icons/react";
-import nlwExpertLogo from ".././../../assets/logo-nlw-expert.svg";
+} from '@phosphor-icons/react'
+import nlwExpertLogo from '.././../../assets/logo-nlw-expert.svg'
 
 export function Footer() {
   return (
@@ -16,15 +16,17 @@ export function Footer() {
         </div>
 
         <p className="pb-4">
-          Desenvolvido por{" "}
+          Desenvolvido por{' '}
           <a
             href="https://www.marcelopereira.dev/"
             target="_blank"
             className="text-slate-400 font-semibold hover:underline focus-visible:underline underline-offset-4 outline-none"
+            rel="noreferrer"
           >
             Marcelo Pereira
-          </a>{" "}
-          durante a <span className="whitespace-nowrap">NLW Expert - 2024</span>.
+          </a>{' '}
+          durante a <span className="whitespace-nowrap">NLW Expert - 2024</span>
+          .
         </p>
 
         <aside className="">
@@ -63,5 +65,5 @@ export function Footer() {
         </aside>
       </div>
     </footer>
-  );
+  )
 }
