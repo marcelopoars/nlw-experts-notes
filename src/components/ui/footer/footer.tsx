@@ -1,7 +1,7 @@
 import {
-  GithubLogo,
-  GoogleChromeLogo,
-  LinkedinLogo,
+  GithubLogoIcon,
+  GoogleChromeLogoIcon,
+  LinkedinLogoIcon,
 } from '@phosphor-icons/react'
 import nlwExpertLogo from '.././../../assets/logo-nlw-expert.svg'
 
@@ -38,7 +38,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 title="Ir para o repositório Github deste projeto"
               >
-                <GithubLogo className="size-6 text-lime-300" />
+                <GithubLogoIcon className="size-6 text-lime-300" />
               </a>
             </li>
             <li>
@@ -48,7 +48,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 title="Ir para o perfil Linkedin de Marcelo Pereira"
               >
-                <LinkedinLogo className="size-6 text-lime-300" />
+                <LinkedinLogoIcon className="size-6 text-lime-300" />
               </a>
             </li>
             <li>
@@ -58,7 +58,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 title="Ir para o website de Marcelo Pereira"
               >
-                <GoogleChromeLogo className="size-6 text-lime-300" />
+                <GoogleChromeLogoIcon className="size-6 text-lime-300" />
               </a>
             </li>
           </ul>

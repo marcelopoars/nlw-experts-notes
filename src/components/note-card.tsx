@@ -1,4 +1,4 @@
-import { TrashSimple } from '@phosphor-icons/react'
+import { TrashSimpleIcon } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
@@ -50,7 +50,7 @@ export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
             className="flex items-center justify-center gap-1 bg-red-500 hover:bg-red-600 text-sm font-medium text-slate-50 py-4 px-6 outline-none rounded-full transition"
             onClick={() => onNoteDeleted(note.id)}
           >
-            <TrashSimple weight="bold" className="size-5" />
+            <TrashSimpleIcon weight="bold" className="size-5" />
             Apagar nota
           </button>
         </Dialog.Content>

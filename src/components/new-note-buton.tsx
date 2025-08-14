@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import { Microphone, PencilSimple, Plus } from '@phosphor-icons/react'
+import { MicrophoneIcon, PencilSimpleIcon, Plus } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { toast } from 'sonner'
 
@@ -116,7 +116,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
               <span className="flex items-center gap-2 text-sm font-medium text-slate-300 pb-2 border-b border-b-slate-500">
                 {isRecording ? (
                   <>
-                    <Microphone
+                    <MicrophoneIcon
                       weight="bold"
                       size={20}
                       className="text-red-500 animate-pulse"
@@ -136,7 +136,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
                       className="group flex items-center gap-3 bg-lime-300 text-slate-800 font-semibold py-2 lg:py-4 px-4 lg:px-6 rounded-full hover:text-lime-300 hover:ring-2 hover:ring-lime-300 hover:bg-transparent focus-visible:text-lime-300 focus-visible:bg-transparent focus-visible:ring-2 focus-visible:ring-lime-300 outline-none transition"
                       onClick={handleStartRecording}
                     >
-                      <Microphone weight="bold" />
+                      <MicrophoneIcon weight="bold" />
                       Gravar nota
                     </button>
                   </li>
@@ -146,7 +146,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
                       className="group flex items-center gap-3 bg-lime-300 text-slate-800 font-semibold py-2 lg:py-4 px-4 lg:px-6 rounded-full hover:text-lime-300 hover:ring-2 hover:ring-lime-300 hover:bg-transparent focus-visible:text-lime-300 focus-visible:bg-transparent focus-visible:ring-2 focus-visible:ring-lime-300 outline-none transition"
                       onClick={handlrStartEditor}
                     >
-                      <PencilSimple weight="bold" />
+                      <PencilSimpleIcon weight="bold" />
                       Escrever nota
                     </button>
                   </li>

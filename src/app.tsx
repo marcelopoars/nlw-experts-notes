@@ -4,6 +4,8 @@ import { Footer, NewNoteButton, NoteCard, Search } from './components'
 
 import nlwExpertLogo from './assets/logo-nlw-expert-light.svg'
 
+import './globals.css'
+
 interface Note {
   id: string
   date: Date
