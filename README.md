@@ -14,6 +14,16 @@ Desenvolvido durante o **NLW Expert** da Rocketseat utilizando React, TypeScript
 
 ## 🚀 Tecnologias
 
+- ⚛️ ReactJs
+- ⚡ Vite
+- 🟦 TypeScript
+- 💨 TailwindCSS
+- 🖼️ Phosphor Icons
+- 🔔 Sonner Toast
+- 💾 API Web Storage
+- 🎤 API Web Speech
+- 📅 date-fns
+
 ## 🛠️ Instalação e uso rápido
 
 ```bash
@@ -52,15 +62,17 @@ npm run format:check
 npm run check
 ```
 
-# Executa verificação completa: tipos, lint e formatação
-
-npm run check
-
-```
-
 ---
 
 ## 🌐 Deploy
 
 Este projeto foi publicado na **Vercel**. Acesse [este link](https://notes.marcelopereira.com.br) para testar a aplicação.
-```
+
+---
+
+## 👤 Sobre o autor
+
+- [LinkedIn](https://www.linkedin.com/in/marcelopoars/)
+- [Site pessoal](https://www.marcelopereira.com.br/)
+
+---
