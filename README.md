@@ -72,6 +72,9 @@ Este projeto foi publicado na **Vercel**. Acesse [este link](https://notes.marce
 
 ## 👤 Sobre o autor
 
+**Marcelo Pereira**<br>
+Desenvolvedor Front-End Sênior
+
 - [LinkedIn](https://www.linkedin.com/in/marcelopoars/)
 - [Site pessoal](https://www.marcelopereira.com.br/)
 
