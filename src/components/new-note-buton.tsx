@@ -1,6 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import { MicrophoneIcon, PencilSimpleIcon, Plus } from '@phosphor-icons/react'
+import {
+  MicrophoneIcon,
+  PencilSimpleIcon,
+  PlusIcon,
+} from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { toast } from 'sonner'
 
@@ -104,7 +108,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
   return (
     <Dialog.Root onOpenChange={onOpenChangeDialog}>
       <Dialog.Trigger className="group flex items-center gap-3 bg-lime-300 text-slate-800 font-semibold py-2 lg:py-4 px-4 lg:px-6 rounded-full hover:text-lime-300 hover:ring-2 hover:ring-lime-300 hover:bg-transparent focus-visible:text-lime-300 focus-visible:bg-transparent focus-visible:ring-2 focus-visible:ring-lime-300 outline-none transition">
-        <Plus weight="bold" />
+        <PlusIcon weight="bold" />
         Nova nota
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -124,7 +128,7 @@ export function NewNoteButton({ onNoteCreated }: NewNoteButtonProps) {
                     Gravando nota...
                   </>
                 ) : (
-                  'Criar nova nota'
+                  <Dialog.Title>Criar nova nota</Dialog.Title>
                 )}
               </span>
 
